@@ -6,93 +6,91 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Font elegan */
-    background-color: #03081A; /* Biru Dongker Sangat Gelap (Mewah) */
-    color: #E0E0E0; /* Warna teks abu-abu terang */
+    font-family: 'Poppins', sans-serif; 
+    background-color: #03081A; /* Biru Dongker Sangat Gelap */
+    color: #E0E0E0; 
     line-height: 1.6;
 }
 
-/* Gaya untuk bagian Welcome (agar serasi) */
 .welcome-section {
     padding: 80px 20px;
     text-align: center;
-    background-color: #040E31; /* Biru Dongker sedikit lebih terang */
+    background-color: #040E31; 
 }
 
 .welcome-section h1 {
     font-size: 2.5em;
-    color: #8CC0F8; /* Biru langit/emas untuk highlight */
+    color: #8CC0F8; 
     margin-bottom: 10px;
     font-weight: 700;
 }
 
-.welcome-section p {
-    font-size: 1.1em;
-}
-
-/* 2. Gaya Bagian Galeri */
 .gallery-section {
     padding: 60px 20px;
-    max-width: 1200px;
+    max-width: fit-content;
     margin: 0 auto;
 }
 
-.gallery-section h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 40px;
-    color: #F8F8F8;
-    border-bottom: 2px solid #1A2345; /* Garis bawah elegan */
-    padding-bottom: 10px;
-    display: inline-block;
-    width: 100%;
+.instagram-link {
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.3s ease;
 }
 
-/* 3. Gaya Grid Foto (Tata Letak) */
+.instagram-link:hover {
+    color: #8CC0F8; 
+}
+
 .photo-grid {
     display: grid;
-    /* Membuat kolom responsif: 3 kolom untuk desktop, otomatis mengecil di HP */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px; /* Jarak antar kotak */
-    grid-auto-rows: 300px; /* Tinggi baris default untuk efek grid yang rapi */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 20px; 
+    grid-auto-rows: max-content; 
 }
 
-/* Jika kamu ingin variasi ukuran kotak seperti di HTML (.large) */
-.gallery-item.large {
-    grid-row: span 2; /* Mencakup 2 baris */
-    grid-column: span 1; /* Biar tetap 1 kolom */
+.gallery-item.tall {
+    position: relative;
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
+    cursor: pointer;
+    grid-column: span 1;
+    grid-row: span 1;
 }
-/* Pastikan foto di .large tetap terlihat bagus */
-.gallery-item.large img {
-    height: 100%; /* Agar memenuhi 2 baris */
+.foto-grid{
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 20px; 
+    grid-auto-rows: 400px; 
+margin-bottom: 20px;
 }
 
-/* 4. Gaya Setiap Kotak Foto (Efek Bergerak/Elegan) */
 .gallery-item {
     position: relative;
-    overflow: hidden; /* Penting untuk menyembunyikan bagian overlay yang tidak perlu */
-    border-radius: 10px; /* Sudut membulat */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Bayangan dalam */
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transisi untuk gerakan halus */
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
     cursor: pointer;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Agar foto terisi penuh tanpa merusak rasio */
+    object-fit: cover; 
     display: block;
-    transition: transform 0.6s ease; /* Transisi zoom pada foto */
+    transition: transform 0.6s ease; 
 }
 
 /* Efek Elegan saat Kursor di Atas Foto (Hover) */
 .gallery-item:hover {
-    transform: translateY(-5px); /* Sedikit naik ke atas */
-    box-shadow: 0 10px 25px rgba(140, 192, 248, 0.3); /* Bayangan biru terang yang mewah */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(140, 192, 248, 0.3); 
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05); /* Foto sedikit membesar (Zoom In) */
+    transform: scale(1.05); 
 }
 
 /* 5. Gaya Overlay (Informasi Foto) */
@@ -102,26 +100,26 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(4, 14, 49, 0.75); /* Warna dongker transparan */
+    background-color: rgba(4, 14, 49, 0.75); 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Teks di bawah */
+    justify-content: flex-end; 
     padding: 20px;
-    opacity: 0; /* Awalnya disembunyikan */
+    opacity: 0; 
     transition: opacity 0.5s ease, transform 0.5s ease;
-    transform: translateY(100%); /* Geser ke bawah 100% */
+    transform: translateY(100%); 
     color: #FFFFFF;
 }
 
 .gallery-item:hover .overlay {
-    opacity: 1; /* Muncul saat di-hover */
-    transform: translateY(0); /* Kembali ke posisi normal (Geser ke atas) */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
 .overlay h3 {
     margin-bottom: 5px;
     font-size: 1.4em;
-    color: #8CC0F8; /* Warna highlight */
+    color: #8CC0F8; 
 }
 
 .overlay p {
